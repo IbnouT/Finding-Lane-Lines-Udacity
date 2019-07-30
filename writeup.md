@@ -43,6 +43,7 @@ Final results of the videos processing can be found in the folder [test_videos_o
 [line_ex_2]: ./test_images_output/6_lines_detection_solidWhiteRight.jpg "Extended lines - - SolidWhiteRight"
 [region_selection]: ./images/region_select_solidYellowLeft.png "Region Selection 1"
 [example_widget]: ./images/example_widget.png "Example Interactive Widget"
+[road_up_hill]: ./images/road_up_hill.jpg "Example Road Up Hill"
 ---
 
 ## **Reflection**
@@ -151,11 +152,13 @@ The results look like this:
 | ![alt text][line_ex_1]  | ![alt text][line_ex_2]  |
 
 ### 2. Potential shortcomings with the current pipeline
-
-
-TBD
-
+Some potential shortcomings to this pipelines include:
+- what would happen if we had a very sharp curve road where there won't be straight line ? In such situation our `draw_lines` function will fail to represent properly the lane lines.
+- We might also have other white road marking, like different type of arrows, pedestrian crossing, etc, which would need to be properly detected and not confused as part of lane lines.
+- What about up hill/down hill roads where the lane lines might need to be represented by multiple line segments with different slope, like the picture in [this link](https://www.wallpaperup.com/1092632/asphalt_downhill_grass_highway_landscape_lane_road_roadway_tarmac_trees_uphill_way_woods.html).
+- Also we can see that in some area on the challenge video the drawn lines are flickering a lot, which means that we have some outliers data points which tend to deviate the average slope/y-intercept values from the marking on the road. That is not very perceptible, but if we have much more white luminosity on the picture that effect might increase.
 
 ### 3. Some possible improvements
-
-TBD
+- Instead of detecting straight lines, maybe it would be possible to try to detect the contours which might be helpful in case the road has some sharp curvature.
+- After detecting lines with Hough Transform, one idea would be remove the outliers, which are the lines that deviate a lot from the average slope and then recompute the average slope & intercept values.
+- The lines drawing are not smoothly drawn on the road on the videos processed, which means that between some successive images on the videos there are some variation on the lines detected. There might be a way to smooth the lines drawn on successive images on the videos.
