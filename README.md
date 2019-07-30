@@ -12,7 +12,7 @@ The main entry points :
 
 - [writeup.md](./writeup.md) : Writeup describing the pipeline and explaining the solution approach, as well as some reflection of what might not work well and some improvement ideas.
 
-[![Video Challenge](./test_images_output/6_lines_detection_solidYellowCurve2.jpg)](https://youtu.be/fQcbhDkMrZE)
+[![Video Challenge](./images/result.gif?raw=true)](https://youtu.be/fQcbhDkMrZE)
 ---
 ## Quick Setup
 #### 1. Install [Anaconda](https://www.anaconda.com/distribution/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
